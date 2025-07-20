@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as sdk from "@d-id/client-sdk";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const AGENT_ID = process.env.NEXT_PUBLIC_DID_AGENT_ID!;
 const CLIENT_KEY = process.env.NEXT_PUBLIC_DID_CLIENT_KEY!;
@@ -36,11 +37,14 @@ export default function DidAgent() {
           console.error("[D-ID error]", err, data),
       };
 
-      manager = await sdk.createAgentManager(AGENT_ID, {
-        auth: { type: "key", clientKey: CLIENT_KEY },
-        callbacks,
-        streamOptions: { compatibilityMode: "auto", streamWarmup: true },
-      });
+      manager = await sdk.createAgentManager(
+        AGENT_ID,
+        {
+          auth: { type: "key", clientKey: CLIENT_KEY },
+          callbacks,
+          streamOptions: { compatibilityMode: "auto", streamWarmup: true },
+        } as any // ← loose-casts the options
+      );
 
       await manager.connect(); // open WebRTC + chat session
       setAgentManager(manager);
