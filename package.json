@@ -1,28 +1,29 @@
 {
-  "name": "agents-sdk-demo",
-  "version": "1.0.0",
-  "main": "main.js",
+  "name": "deepfake",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite --port 3000",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "keywords": [
-    "d-id",
-    "sdk",
-    "client-sdk"
-  ],
-  "license": "MIT",
-  "author": "d-id",
-  "description": "A public demo showcasing the usage of the @d-id/client-sdk with Vite.",
-  "engines": {
-    "node": ">=20.19.0 <21 || >=22"
-  },
-  "devDependencies": {
-    "vite": "^7.0.0"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@d-id/client-sdk": "*"
+    "@d-id/client-sdk": "^1.1.0-beta.15",
+    "classnames": "^2.5.1",
+    "next": "15.4.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
